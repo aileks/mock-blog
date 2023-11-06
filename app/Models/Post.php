@@ -13,6 +13,13 @@ class Post extends Model
     protected $guarded = [];
     protected $with = ['category', 'author'];
 
+    public function scopeFilter($query, array $filters): void
+    {
+        $query->when($filters['search'] ?? false, fn($query, $search) => $query
+            ->where('title', 'like', '%'.$search.'%')
+            ->orWhere('body', 'like', '%'.$search.'%'));
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
