@@ -20,9 +20,9 @@
                 @enderror
             </div>
 
-            <div class="flex justify-end mt-4 pt-6">
+            <div class="flex justify-end mt-4 pt-4">
                 <button type="submit"
-                        class="bg-red-300 text-white uppercase font-semibold text-xs py-2 px-10 rounded-xl hover:bg-red-200">
+                        class="bg-red-400 text-white uppercase font-semibold text-xs py-2 px-10 rounded-xl hover:bg-red-300">
                     Post
                 </button>
             </div>
