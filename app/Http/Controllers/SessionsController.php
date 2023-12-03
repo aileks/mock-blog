@@ -21,7 +21,7 @@ class SessionsController extends Controller
 
         session()->regenerate();
 
-        return redirect('/')->with('success', 'You are no logged in.');
+        return redirect('/')->with('success', 'You are now logged in.');
     }
 
     public function create()
