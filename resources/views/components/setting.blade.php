@@ -13,7 +13,7 @@
                 <li>
                     <a href="/admin/posts"
                        class="{{ request()->is('admin/posts') ? 'text-red-400' : '' }}">
-                        All Posts
+                        Dashboard
                     </a>
                 </li>
 

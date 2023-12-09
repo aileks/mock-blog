@@ -38,13 +38,15 @@
                         <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}</button>
                     </x-slot>
 
-                    <x-dropdown-item href="/admin/posts" :active="request()->is('admin/post old($name) s')">
-                        All Posts
-                    </x-dropdown-item>
+                    @admin
+                        <x-dropdown-item href="/admin/posts" :active="request()->is('admin/post old($name) s')">
+                            Dashboard
+                        </x-dropdown-item>
 
-                    <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">
-                        New Post
-                    </x-dropdown-item>
+                        <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">
+                            New Post
+                        </x-dropdown-item>
+                    @endadmin
 
                     <x-dropdown-item href="#" x-data="{}"
                                      @click.prevent="document.querySelector('#logout-form').submit()">
