@@ -6,6 +6,7 @@ use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Middleware\MustBeAdmin;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
@@ -23,7 +24,7 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
-Route::middleware('can:admin')->group(fn() => [
+Route::middleware(MustBeAdmin::class)->group(fn () => [
     Route::get('admin/posts', [AdminPostController::class, 'index']),
     Route::post('admin/posts', [AdminPostController::class, 'store']),
     Route::get('admin/posts/create', [AdminPostController::class, 'create']),
